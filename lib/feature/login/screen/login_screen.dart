@@ -6,6 +6,7 @@ import 'package:task/core/common/styles/global_text_styles.dart';
 import 'package:task/core/common/widgets/custom_text_field.dart';
 import 'package:task/core/utils/constants/colors.dart';
 import 'package:task/core/utils/constants/image_path.dart';
+import 'package:task/feature/dashboard/screen/dasboard_screen.dart';
 import 'package:task/feature/login/controller/login_controller.dart';
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -87,19 +88,24 @@ class LoginScreen extends StatelessWidget {
   ),
 ),
     SizedBox(height: 20.h,),
-    Container(
-      width: double.infinity,
-      height: 60.h,
-      decoration: BoxDecoration(
-        color: Color(0xff0096FC),
-        borderRadius: BorderRadius.circular(10.r),
-      ),
-      child: Center(
-        child: Text("Login",style: GoogleFonts.inter( 
-          fontSize: 18.sp,
-          fontWeight: FontWeight.w600,
-          color: Color(0xffFFFFFF)
-        ),),
+    InkWell(
+      onTap: (){
+        Get.to(()=>DasboardScreen());
+      },
+      child: Container(
+        width: double.infinity,
+        height: 60.h,
+        decoration: BoxDecoration(
+          color: Color(0xff0096FC),
+          borderRadius: BorderRadius.circular(10.r),
+        ),
+        child: Center(
+          child: Text("Login",style: GoogleFonts.inter( 
+            fontSize: 18.sp,
+            fontWeight: FontWeight.w600,
+            color: Color(0xffFFFFFF)
+          ),),
+        ),
       ),
     ),
     SizedBox(height: 8.h,),
