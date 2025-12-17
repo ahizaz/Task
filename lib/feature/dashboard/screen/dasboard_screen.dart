@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:task/core/utils/constants/image_path.dart';
 import 'package:task/feature/dashboard/widget/dashboard_appbar.dart';
 import 'package:task/feature/dashboard/widget/dashboard_bar.dart';
 import 'package:task/feature/dashboard/widget/data_view_card.dart';
+import 'package:task/feature/dashboard/widget/gradiant_tracker_shape.dart';
 import 'package:task/feature/dashboard/widget/progress_indicator.dart';
 import 'package:task/feature/dashboard/widget/source_load.dart';
 class DasboardScreen extends StatelessWidget {
@@ -68,28 +67,61 @@ class DasboardScreen extends StatelessWidget {
           indent: 10,
         ),
         SizedBox(height: 8.h,),
-        //1st
-        DataViewCard(
-          iconPath: ImagePath.solarcell,
-          indicatorColor: Color(0xff78C6FF),
-          statusText: "(Active)",
-          statusColor: Color(0xff0096FC),
-        ),
-        SizedBox(height: 8.h,),
-        //2nd
-        DataViewCard(
-          iconPath: ImagePath.energy,
-          indicatorColor: Color(0xffFB902E),
-          statusText: "(Active)",
-          statusColor: Color(0xff0096FC),
-        ),
-        SizedBox(height: 8.h,),
-        //3rd
-        DataViewCard(
-          iconPath: ImagePath.power,
-          indicatorColor: Color(0xff78C6FF),
-          statusText: "(Inactive)",
-          statusColor: Color(0xffDF2222),
+        IntrinsicHeight(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                child: Column(
+                  children: [
+                    //1st
+                    DataViewCard(
+                      iconPath: ImagePath.solarcell,
+                      indicatorColor: Color(0xff78C6FF),
+                      statusText: "(Active)",
+                      statusColor: Color(0xff0096FC),
+                    ),
+                    SizedBox(height: 8.h,),
+                    //2nd
+                    DataViewCard(
+                      iconPath: ImagePath.energy,
+                      indicatorColor: Color(0xffFB902E),
+                      statusText: "(Active)",
+                      statusColor: Color(0xff0096FC),
+                    ),
+                    SizedBox(height: 8.h,),
+                    //3rd
+                    DataViewCard(
+                      iconPath: ImagePath.power,
+                      indicatorColor: Color(0xff78C6FF),
+                      statusText: "(Inactive)",
+                      statusColor: Color(0xffDF2222),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(width: 8.w),
+           RotatedBox(
+  quarterTurns: 3,
+  child: SliderTheme(
+    data: SliderTheme.of(context).copyWith(
+      trackShape: const GradientSliderTrackShape(), // ✅ custom
+      trackHeight: 6.h,
+      thumbShape: SliderComponentShape.noThumb,
+      overlayShape: const RoundSliderOverlayShape(overlayRadius: 0),
+      activeTrackColor: Colors.transparent,
+      inactiveTrackColor: Colors.transparent,
+    ),
+    child: Slider(
+      value: 0.3,
+      onChanged: null,
+    ),
+  ),
+),
+
+              SizedBox(width: 8.w),
+            ],
+          ),
         ),
         SizedBox(height: 20.h,),
 
