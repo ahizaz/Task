@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'today_data_page.dart';
+import 'custom_date_data_page.dart';
 
-class DataViewWidget extends StatelessWidget {
+class DataViewWidget extends StatefulWidget {
   const DataViewWidget({super.key});
+
+  @override
+  State<DataViewWidget> createState() => _DataViewWidgetState();
+}
+
+class _DataViewWidgetState extends State<DataViewWidget> {
+  bool isTodayData = true;
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +32,13 @@ class DataViewWidget extends StatelessWidget {
                  alignment: Alignment.center,
                  transform: Matrix4.rotationY(3.14159),
                  child: CircularProgressIndicator(
-                   value: 0.55,
+                   value: isTodayData ? 0.55 : 0.75,
                    strokeWidth: 20,
                    strokeCap: StrokeCap.round,
                    backgroundColor: Colors.grey.shade200,
-                   valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+                   valueColor: AlwaysStoppedAnimation<Color>(
+                     isTodayData ? Colors.blue : Colors.green
+                   ),
                  ),
                ),
              ),
@@ -35,7 +46,7 @@ class DataViewWidget extends StatelessWidget {
                mainAxisSize: MainAxisSize.min,
                children: [
                  Text(
-                   '57.00',
+                   isTodayData ? '57.00' : '82.50',
                   style: GoogleFonts.inter( 
                     fontSize: 20.sp,
                     fontWeight: FontWeight.w500,
@@ -56,14 +67,66 @@ class DataViewWidget extends StatelessWidget {
          ),
        ),
      ),
-     Row(
+    SizedBox(height: 20.h),
+    Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        
+        GestureDetector(
+          onTap: () => setState(() => isTodayData = true),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+            child: Row(
+              children: [
+                Icon(
+                  Icons.circle,
+                  size: isTodayData ? 10.sp : 8.sp,
+                  color: isTodayData ? Color(0xff1E88E5) : Colors.grey.shade400,
+                ),
+                SizedBox(width: 6.w),
+                Text(
+                  'Today Data',
+                  style: GoogleFonts.inter(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w500,
+                    color: isTodayData ? Color(0xff1E88E5) : Colors.grey.shade600,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        SizedBox(width: 16.w),
+        GestureDetector(
+          onTap: () => setState(() => isTodayData = false),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+            child: Row(
+              children: [
+                Icon(
+                  Icons.circle,
+                  size: !isTodayData ? 10.sp : 8.sp,
+                  color: !isTodayData ? Color(0xff1E88E5) : Colors.grey.shade400,
+                ),
+                SizedBox(width: 6.w),
+                Text(
+                  'Custom Date Data',
+                  style: GoogleFonts.inter(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w500,
+                    color: !isTodayData ? Color(0xff1E88E5) : Colors.grey.shade600,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ],
-     )
+    ),
+     SizedBox(height: 20.h),
+     isTodayData ? TodayDataPage() : CustomDateDataPage(),
    ],
   );
   }
 }
 
-  
+
