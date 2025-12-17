@@ -11,6 +11,7 @@ class DataViewCard extends StatelessWidget {
   final Color statusColor;
   final String data1;
   final String data2;
+  final VoidCallback? onChevronTap;
 
   const DataViewCard({
     super.key,
@@ -21,6 +22,7 @@ class DataViewCard extends StatelessWidget {
     required this.statusColor,
     this.data1 = "Data 1      : 55505.63",
     this.data2 = "Data 2     : 58805.63",
+    this.onChevronTap, 
   });
 
   @override
@@ -30,9 +32,9 @@ class DataViewCard extends StatelessWidget {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Color(0xffE5F4FE),
+          color: const Color(0xffE5F4FE),
           borderRadius: BorderRadius.circular(4.r),
-          border: Border.all(color: Color(0xffA5A7B9), width: 1),
+          border: Border.all(color: const Color(0xffA5A7B9), width: 1),
         ),
         child: Padding(
           padding: const EdgeInsets.all(12.0),
@@ -64,7 +66,7 @@ class DataViewCard extends StatelessWidget {
                         style: GoogleFonts.inter(
                           fontWeight: FontWeight.w500,
                           fontSize: 14.sp,
-                          color: Color(0xff04063E),
+                          color: const Color(0xff04063E),
                         ),
                       ),
                       SizedBox(width: 14.w),
@@ -75,7 +77,7 @@ class DataViewCard extends StatelessWidget {
                           fontSize: 10.sp,
                           color: statusColor,
                         ),
-                      )
+                      ),
                     ],
                   ),
                   SizedBox(height: 4.h),
@@ -84,7 +86,7 @@ class DataViewCard extends StatelessWidget {
                     style: GoogleFonts.inter(
                       fontWeight: FontWeight.w400,
                       fontSize: 12.sp,
-                      color: Color(0xff04063E),
+                      color: const Color(0xff04063E),
                     ),
                   ),
                   SizedBox(height: 4.h),
@@ -93,18 +95,23 @@ class DataViewCard extends StatelessWidget {
                     style: GoogleFonts.inter(
                       fontWeight: FontWeight.w400,
                       fontSize: 12.sp,
-                      color: Color(0xff04063E),
+                      color: const Color(0xff04063E),
                     ),
-                  )
+                  ),
                 ],
               ),
-              Spacer(),
-              Image(
-                image: AssetImage(IconPath.cevronright),
-                width: 24.w,
-                height: 24.h,
-                fit: BoxFit.cover,
-              )
+              const Spacer(),
+
+             
+              InkWell(
+                onTap: onChevronTap,
+                child: Image.asset(
+                  IconPath.cevronright,
+                  width: 24.w,
+                  height: 24.h,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ],
           ),
         ),

@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:task/core/utils/constants/icon_path.dart';
 import 'package:task/core/utils/constants/image_path.dart';
 import 'package:task/feature/dashboard/screen/dashboard_no_data.dart';
+import 'package:task/feature/dashboard/screen/dashboard_screen_one.dart';
 import 'package:task/feature/dashboard/widget/dashboard_appbar.dart';
 import 'package:task/feature/dashboard/widget/dashboard_bar.dart';
 import 'package:task/feature/dashboard/widget/dashboard_button_row.dart';
@@ -80,6 +81,9 @@ class DasboardScreen extends StatelessWidget {
                   children: [
                     //1st
                     DataViewCard(
+                         onChevronTap: (){
+                          Get.to(()=>DashboardScreenOne());
+                      },
                       iconPath: ImagePath.solarcell,
                       indicatorColor: Color(0xff78C6FF),
                       statusText: "(Active)",
@@ -88,6 +92,9 @@ class DasboardScreen extends StatelessWidget {
                     SizedBox(height: 8.h,),
                     //2nd
                     DataViewCard(
+                      onChevronTap: (){
+                         Get.to(()=>DashboardScreenOne());
+                      },
                       iconPath: ImagePath.energy,
                       indicatorColor: Color(0xffFB902E),
                       statusText: "(Active)",
@@ -96,6 +103,9 @@ class DasboardScreen extends StatelessWidget {
                     SizedBox(height: 8.h,),
                     //3rd
                     DataViewCard(
+                         onChevronTap: (){
+                          Get.to(()=>DashboardScreenOne());
+                      },
                       iconPath: ImagePath.power,
                       indicatorColor: Color(0xff78C6FF),
                       statusText: "(Inactive)",
