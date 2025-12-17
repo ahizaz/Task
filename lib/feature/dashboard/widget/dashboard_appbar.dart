@@ -9,7 +9,7 @@ class DashboardAppBar extends StatelessWidget implements PreferredSizeWidget {
   const DashboardAppBar({super.key});
 
   @override
-  Size get preferredSize => Size.fromHeight(50.h);
+  Size get preferredSize => Size.fromHeight(70.h);
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +17,7 @@ class DashboardAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: const Color(0xffFFFFFF),
       elevation: 5,
       centerTitle: true,
+            toolbarHeight: 90.h,
       leading: Padding(
         padding: EdgeInsets.only(left: 24.w),
         child: IconButton(

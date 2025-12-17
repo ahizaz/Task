@@ -11,7 +11,7 @@ class Task extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(360, 800),
+      designSize: const Size(360, 836),
       minTextAdapt: true,
       splitScreenMode: true,
       child: GetMaterialApp(

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:task/core/utils/constants/icon_path.dart';
 import 'package:task/core/utils/constants/image_path.dart';
+import 'package:task/feature/dashboard/screen/dashboard_no_data.dart';
 import 'package:task/feature/dashboard/widget/dashboard_appbar.dart';
 import 'package:task/feature/dashboard/widget/dashboard_bar.dart';
 import 'package:task/feature/dashboard/widget/dashboard_button_row.dart';
@@ -135,6 +138,12 @@ class DasboardScreen extends StatelessWidget {
              leftTitle: "Analysis Pro",
              rightIcon: IconPath.generator,
              rightTitle: "G. Generator",
+             onLeftTap: () {
+            Get.to(()=>DashboardNoData());
+             },
+             onRightTap: () {
+             Get.to(()=>DashboardNoData());
+             },
            ),
            SizedBox(height: 8.h,),
            DashboardButtonRow(
@@ -143,6 +152,12 @@ class DasboardScreen extends StatelessWidget {
              rightIcon: IconPath.fire,
              rightTitle: "Natural Gas",
              leftPadding: 6.0,
+             onLeftTap: () {
+                 Get.to(()=>DashboardNoData());
+             },
+             onRightTap: () {
+             Get.to(()=>DashboardNoData());
+             },
            ),
            SizedBox(height: 8.h,),
            DashboardButtonRow(
@@ -151,6 +166,12 @@ class DasboardScreen extends StatelessWidget {
              rightIcon: IconPath.water,
              rightTitle: "Water Process",
              leftPadding: 6.0,
+             onLeftTap: () {
+                Get.to(()=>DashboardNoData());
+             },
+             onRightTap: () {
+                 Get.to(()=>DashboardNoData());
+             },
            ),
            SizedBox(height: 20.h,),
 

@@ -9,6 +9,8 @@ class DashboardButtonRow extends StatelessWidget {
   final String rightTitle;
   final double? leftPadding;
   final double? rightPadding;
+  final VoidCallback? onLeftTap;
+  final VoidCallback? onRightTap;
 
   const DashboardButtonRow({
     super.key,
@@ -18,6 +20,8 @@ class DashboardButtonRow extends StatelessWidget {
     required this.rightTitle,
     this.leftPadding = 8.0,
     this.rightPadding = 8.0,
+    this.onLeftTap,
+    this.onRightTap,
   });
 
   @override
@@ -25,18 +29,24 @@ class DashboardButtonRow extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: DashboardButton(
-            iconPath: leftIcon,
-            title: leftTitle,
-            padding: leftPadding,
+          child: GestureDetector(
+            onTap: onLeftTap,
+            child: DashboardButton(
+              iconPath: leftIcon,
+              title: leftTitle,
+              padding: leftPadding,
+            ),
           ),
         ),
         SizedBox(width: 8.w),
         Expanded(
-          child: DashboardButton(
-            iconPath: rightIcon,
-            title: rightTitle,
-            padding: rightPadding,
+          child: GestureDetector(
+            onTap: onRightTap,
+            child: DashboardButton(
+              iconPath: rightIcon,
+              title: rightTitle,
+              padding: rightPadding,
+            ),
           ),
         ),
       ],

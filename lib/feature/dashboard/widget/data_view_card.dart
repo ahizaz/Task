@@ -26,7 +26,7 @@ class DataViewCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 24.w, right: 12.w),
+      padding: EdgeInsets.only(left: 10.w, right: 2.w),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
