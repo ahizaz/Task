@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:google_fonts/google_fonts.dart';
+import 'package:task/core/utils/constants/icon_path.dart';
 import 'package:task/core/utils/constants/image_path.dart';
 import 'package:task/feature/dashboard/widget/dashboard_appbar.dart';
 import 'package:task/feature/dashboard/widget/dashboard_bar.dart';
+import 'package:task/feature/dashboard/widget/dashboard_button_row.dart';
 import 'package:task/feature/dashboard/widget/data_view_card.dart';
 import 'package:task/feature/dashboard/widget/gradiant_tracker_shape.dart';
 import 'package:task/feature/dashboard/widget/progress_indicator.dart';
@@ -124,10 +125,35 @@ class DasboardScreen extends StatelessWidget {
           ),
         ),
         SizedBox(height: 20.h,),
-
+    
             ],
           ),
-        )
+        ),
+        SizedBox(height: 20.h,),
+           DashboardButtonRow(
+             leftIcon: IconPath.analysis,
+             leftTitle: "Analysis Pro",
+             rightIcon: IconPath.generator,
+             rightTitle: "G. Generator",
+           ),
+           SizedBox(height: 8.h,),
+           DashboardButtonRow(
+             leftIcon: IconPath.charge,
+             leftTitle: "Plant Summery",
+             rightIcon: IconPath.fire,
+             rightTitle: "Natural Gas",
+             leftPadding: 6.0,
+           ),
+           SizedBox(height: 8.h,),
+           DashboardButtonRow(
+             leftIcon: IconPath.generator,
+             leftTitle: "D.Generator",
+             rightIcon: IconPath.water,
+             rightTitle: "Water Process",
+             leftPadding: 6.0,
+           ),
+           SizedBox(height: 20.h,),
+
       ],
     ),
   ),

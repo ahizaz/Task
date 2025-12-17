@@ -25,11 +25,13 @@ class GradientSliderTrackShape extends SliderTrackShape
       isDiscrete: isDiscrete,
     );
 
+    final Radius radius = Radius.circular(trackRect.height / 2);
+
     // 🔵 Active gradient
     final Paint activePaint = Paint()
       ..shader = const LinearGradient(
-        begin: Alignment.centerLeft,
-        end: Alignment.centerRight,
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
         colors: [
           Color(0xff4E91FD),
           Color(0xff080B7F),
@@ -40,24 +42,34 @@ class GradientSliderTrackShape extends SliderTrackShape
     final Paint inactivePaint = Paint()
       ..color = const Color(0xffB6B8D0);
 
-    // Active part
-    final Rect activeRect = Rect.fromLTRB(
-      trackRect.left,
-      trackRect.top,
-      thumbCenter.dx,
-      trackRect.bottom,
+    // 🟦 Active rounded part
+    final RRect activeRRect = RRect.fromRectAndCorners(
+      Rect.fromLTRB(
+        trackRect.left,
+        trackRect.top,
+        thumbCenter.dx,
+        trackRect.bottom,
+      ),
+      topLeft: radius,
+      bottomLeft: radius,
+      topRight: radius,
+      bottomRight: radius,
     );
 
-    // Inactive part
-    final Rect inactiveRect = Rect.fromLTRB(
-      thumbCenter.dx,
-      trackRect.top,
-      trackRect.right,
-      trackRect.bottom,
+    // ⬜ Inactive rounded part
+    final RRect inactiveRRect = RRect.fromRectAndCorners(
+      Rect.fromLTRB(
+        thumbCenter.dx,
+        trackRect.top,
+        trackRect.right,
+        trackRect.bottom,
+      ),
+      topRight: radius,
+      bottomRight: radius,
     );
 
-    context.canvas.drawRect(activeRect, activePaint);
-    context.canvas.drawRect(inactiveRect, inactivePaint);
+    context.canvas.drawRRect(activeRRect, activePaint);
+    context.canvas.drawRRect(inactiveRRect, inactivePaint);
   }
 
   @override
@@ -73,6 +85,7 @@ class GradientSliderTrackShape extends SliderTrackShape
     final double trackTop =
         offset.dy + (parentBox.size.height - trackHeight) / 2;
     final double trackWidth = parentBox.size.width;
+
     return Rect.fromLTWH(trackLeft, trackTop, trackWidth, trackHeight);
   }
 }
