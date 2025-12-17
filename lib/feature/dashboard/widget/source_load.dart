@@ -37,13 +37,19 @@ class SourceLoadToggle extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: Center(
-                child: Text(
-                  'Load',
-                  style: GoogleFonts.inter(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w500,
-                    color: const Color(0xff757575),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: const Color(0xffB6B8D0).withValues(alpha: 0.21),
+                  borderRadius: BorderRadius.circular(18.r),
+                ),
+                child: Center(
+                  child: Text(
+                    'Load',
+                    style: GoogleFonts.inter(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w500,
+                      color: const Color(0xff757575),
+                    ),
                   ),
                 ),
               ),
