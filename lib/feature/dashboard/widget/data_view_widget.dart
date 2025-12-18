@@ -20,24 +20,24 @@ class _DataViewWidgetState extends State<DataViewWidget> {
    children: [
      Center(
        child: SizedBox(
-         width: 200,
-         height: 200,
+         width: 160,
+         height: 130,
          child: Stack(
            alignment: Alignment.center,
            children: [
              SizedBox(
                width: 160.w,
-               height: 160.h,
+               height: 130.h,
                child: Transform(
                  alignment: Alignment.center,
                  transform: Matrix4.rotationY(3.14159),
                  child: CircularProgressIndicator(
-                   value: isTodayData ? 0.55 : 0.75,
+                   value: isTodayData ? 0.55 : 0.57,
                    strokeWidth: 20,
                    strokeCap: StrokeCap.round,
                    backgroundColor: Colors.grey.shade200,
                    valueColor: AlwaysStoppedAnimation<Color>(
-                     isTodayData ? Colors.blue : Colors.green
+                     isTodayData ? Colors.blue : Colors.blue
                    ),
                  ),
                ),
@@ -46,7 +46,7 @@ class _DataViewWidgetState extends State<DataViewWidget> {
                mainAxisSize: MainAxisSize.min,
                children: [
                  Text(
-                   isTodayData ? '57.00' : '82.50',
+                   isTodayData ? '55.00' : '57.50',
                   style: GoogleFonts.inter( 
                     fontSize: 20.sp,
                     fontWeight: FontWeight.w500,
@@ -80,7 +80,7 @@ class _DataViewWidgetState extends State<DataViewWidget> {
                 Icon(
                   Icons.circle,
                   size: isTodayData ? 10.sp : 8.sp,
-                  color: isTodayData ? Color(0xff1E88E5) : Colors.grey.shade400,
+                  color: isTodayData ? Color(0xff1E88E5) : Color(0xff646984),
                 ),
                 SizedBox(width: 6.w),
                 Text(
@@ -88,7 +88,7 @@ class _DataViewWidgetState extends State<DataViewWidget> {
                   style: GoogleFonts.inter(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w500,
-                    color: isTodayData ? Color(0xff1E88E5) : Colors.grey.shade600,
+                    color: isTodayData ? Color(0xff1E88E5) : Color(0xff646984)
                   ),
                 ),
               ],

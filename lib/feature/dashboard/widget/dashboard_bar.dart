@@ -34,7 +34,7 @@ Widget _buildTab(String title, {required bool isActive}) {
       decoration: BoxDecoration(
         color: isActive ? const Color(0xff0096FC) : Colors.transparent,
 
-        // ✅ শুধু active tab-এ top radius
+       
         borderRadius: isActive
             ? BorderRadius.only(
                 topLeft: Radius.circular(12.r),

@@ -22,7 +22,7 @@ class TodayDataPage extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 33.w),
+            padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 33.w),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
