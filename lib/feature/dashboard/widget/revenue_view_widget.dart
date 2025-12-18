@@ -161,6 +161,7 @@ class _DataCostCardState extends State<_DataCostCard> {
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: List.generate(_total, (index) {
                 final i = index + 1;
                 return Padding(
@@ -168,22 +169,50 @@ class _DataCostCardState extends State<_DataCostCard> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Data $i : 2798.50 (29.53%)',
-                        style: GoogleFonts.inter(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xff3A4971),
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                           "Data $i :",
+                           style: GoogleFonts.inter( 
+                            color: Color(0xff646984),
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w400,
+                           ),
+                          ),
+                          Text("   2798.50 (29.53%)",
+                           style: GoogleFonts.inter( 
+                            color: Color(0xff04063E),
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w600,
+                           ),
+                          )
+
+                        ],
                       ),
                       SizedBox(height: 6.h),
-                      Text(
-                        'Cost $i : 35689 ৳',
-                        style: GoogleFonts.inter(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w700,
-                          color: Color(0xff04063E),
-                        ),
+                     Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                           "Cost  $i :",
+                           style: GoogleFonts.inter( 
+                            color: Color(0xff646984),
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w400,
+                           ),
+                          ),
+                          Text("   35689 ৳",
+                           style: GoogleFonts.inter( 
+                            color: Color(0xff04063E),
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w600,
+                           ),
+                          )
+
+                        ],
                       ),
                     ],
                   ),
