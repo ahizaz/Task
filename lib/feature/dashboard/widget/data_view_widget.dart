@@ -19,21 +19,22 @@ class _DataViewWidgetState extends State<DataViewWidget> {
   return SingleChildScrollView(
     child: Column(
    children: [
+    SizedBox(height: 10,),
      Center(
        child: SizedBox(
-         width: 160,
-         height: 140,
+         width: 150,
+         height: 150,
          child: Stack(
            alignment: Alignment.center,
            children: [
              SizedBox(
-               width: 160.w,
-               height: 140.h,
+               width: 150.w,
+               height: 150.h,
                child: Transform(
                  alignment: Alignment.center,
                  transform: Matrix4.rotationY(3.14159),
                  child: CircularProgressIndicator(
-                   value: isTodayData ? 0.55 : 0.57,
+                   value: isTodayData ? 0.55 : 0.54,
                    strokeWidth: 20,
                    strokeCap: StrokeCap.round,
                    backgroundColor: Colors.grey.shade200,

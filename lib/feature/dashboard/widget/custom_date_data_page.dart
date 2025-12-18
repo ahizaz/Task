@@ -153,7 +153,7 @@ class CustomDateDataPage extends StatelessWidget {
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Text(
-                      "5.53 kw",
+                      "20.05 kw",
                       style: GoogleFonts.inter(
                           fontSize: 32.sp,
                           fontWeight: FontWeight.w600,
