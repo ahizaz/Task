@@ -16,18 +16,19 @@ class _DataViewWidgetState extends State<DataViewWidget> {
 
   @override
   Widget build(BuildContext context) {
-  return Column(
+  return SingleChildScrollView(
+    child: Column(
    children: [
      Center(
        child: SizedBox(
          width: 160,
-         height: 130,
+         height: 140,
          child: Stack(
            alignment: Alignment.center,
            children: [
              SizedBox(
                width: 160.w,
-               height: 130.h,
+               height: 140.h,
                child: Transform(
                  alignment: Alignment.center,
                  transform: Matrix4.rotationY(3.14159),
@@ -125,6 +126,7 @@ class _DataViewWidgetState extends State<DataViewWidget> {
      SizedBox(height: 20.h),
      isTodayData ? TodayDataPage() : CustomDateDataPage(),
    ],
+    ),
   );
   }
 }
